@@ -1,2 +1,7 @@
 ServiceLoader/dataservice/bin
 ServiceLoader/dataservice/modules
+**/.idea
+**/target
+**/bin
+**/libs
+**/modules
