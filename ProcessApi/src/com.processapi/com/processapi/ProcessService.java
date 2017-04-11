@@ -51,7 +51,7 @@ public class ProcessService
 		return Runtime.getRuntime().exec(command);
 	}
 
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) throws IOException, InterruptedException
 	{
 		System.out.println("************ LIST OF ALL PROCESSES ***********");
 		ProcessService.sortByDurationAndListAllProcesses();
@@ -62,16 +62,9 @@ public class ProcessService
 		ProcessService.findProcesses("chrome");
 
 		Process process = ProcessService.exec("sleep 1h");
-		killProcess(process.getPid(), () -> System.out.printf("Process{%d} killed!\n", process.getPid()));
+		ProcessService.killProcess(process.getPid(), () -> System.out.printf("Process{%d} killed!\n", process.getPid()));
 
-		try
-		{
-			Thread.sleep(1000);
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
+		Thread.sleep(1000);
 	}
 
 }
