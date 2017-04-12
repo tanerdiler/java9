@@ -21,12 +21,6 @@ public class Sample
 						Map.entry("key1", "value1"),
 						Map.entry("key2", "value2")
 				);
-
-		StackWalker.getInstance().walk(s ->
-				s.map( frame-> frame.getClassName()+"/"+frame.getMethodName())
-						.filter(name -> name.startsWith("de.exxcellent"))
-						.limit(10)
-						.collect(Collectors.toList()) );
 	}
 
 }
