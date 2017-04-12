@@ -39,6 +39,7 @@ function compileAndModule {
 }
 
 compileAndJar "com.processapi"
+echo "make com.processapi.jarr automodule by moving to module path"
 mv libs/com.processapi.jar modules/.
 
 $JAVA9_BIN/java --add-modules  ALL-MODULE-PATH -p modules   com.processapi.ProcessService  #-m com.app.Main

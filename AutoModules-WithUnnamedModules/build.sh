@@ -43,8 +43,9 @@ function compileAndModule {
 compileAndJar "com.level2"
 compileAndJar "com.level1"
 compileAndJar "com.app" "com.app.Main"
+echo "make com.app.jar automodule by moving to module path"
 mv libs/com.app.jar modules/.
 
-$JAVA9_BIN/java -p modules --add-modules ALL-MODULE-PATH   -cp libs/com.level2.jar:libs/com.level1.jar:libs/com.app.jar   com.app.Main  #-m com.app.Main
+$JAVA9_BIN/java -p modules --add-modules ALL-MODULE-PATH   -cp libs/com.level2.jar:libs/com.level1.jar   -m com.app
 
 
